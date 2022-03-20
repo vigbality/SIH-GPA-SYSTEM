@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato&family=Share+Tech+Mono&family=VT323&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/index.css' %}">
+
+    <title>Landing Page</title>
+</head>
+
+<body class="landing-page">
+    <div class="grid-container grid" style="--grid-gap: 0">
+        <div class="landing-image">
+            <!-- <div class="custom-shape-divider-bottom-1647537411" id="landing-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div> -->
+            <!-- <img src="./Assets/LandingPage/laptop-image--desktop.jpg" alt="Laptop"> -->
+        </div>
+        <main class="page-content flex">
+            <form action="" class="landing-form flow" method="post">
+                {% csrf_token %}
+                <h1 class="ff-heading form-heading  uppercase">Login</h1>
+                <input class="text-input" type="text" name="email" placeholder="Enter email">
+                <div class="flex" style="--flex-gap: 2rem;">
+                    <input class="btn-solid  text-light" name="type" type="submit" value="Login"></input>
+                    <input class="btn-outline bg-transparent text-light" name="type" type="submit" value="Register"></input>
+                </div>
+
+                <!-- <a href="#" class="text-light">Forgot password?</a> -->
+            </form>
+        </main>
+    </div>
+    </main>
+</body>
+
+</html>

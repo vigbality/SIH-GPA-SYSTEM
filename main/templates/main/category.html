@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato&family=Share+Tech+Mono&family=VT323&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/index.css' %}">
+    <script src="{% static 'main/index.js' %}" defer></script>
+    <script src="{% static 'main/pictures.js' %}" defer></script>
+    <title>Category</title>
+</head>
+
+<body class="category-page">
+    <main class=" grid grid--categories">
+        <div class="container flow">
+            <div class="numbered-indicators flex flow bg-dark">
+                <button aria-selected="true" class="bg-grey-mid ff-number  bg-transparent  text-light  btn-bg"><span
+                        class="sr-only">Page
+                        Number</span>1</button>
+                <span class="divider"></span>
+                <button aria-selected="false" class="text-light ff-number  bg-transparent"><span class="sr-only">Page
+                        Number</span>2</button>
+                <button aria-selected="false " class="text-light ff-number  bg-transparent"><span class="sr-only">Page
+                        Number</span>3</button>
+            </div>
+            <section class="category-text flex">
+                <a href="#" class="back-arrow"></a>
+                <div>
+                    <h1 class="ff-heading fs-400">Choose a category</h1>
+                    <p class="ff-normal">Select a category</p>
+                </div>
+            </section>
+            <div class="page-content">
+                <form class="categories" action="" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <p>Flags</p>
+                        <input type="radio" class=" input-hidden" name="cat" id="c1" value="c1"></input>
+                        <label for="c1">
+                            <img class="category-image-small" src="{% static 'main/Assets/Categories/flag-small.webp' %}" id="flags"
+                                onclick="changeImage(this)" alt="">
+                        </label>
+                    </div>
+                    <div>
+                        <p>Animals</p>
+                        <input type="radio" class="input-hidden" name="cat" id="c2" value="c2"></input>
+                        <label for="c2">
+                            <img class="category-image-small" src="{% static 'main/Assets/Categories/animals-small.webp' %}" id="animals"
+                                onclick="changeImage(this)" alt="">
+                        </label>
+                    </div>
+                    <div>
+                        <p>Apps</p>
+                        <input type="radio" class="input-hidden" name="cat" id="c3" value="c3"></input>
+                        <label for="c3">
+                            <img class="category-image-small" src="{% static 'main/Assets/Categories/app-small.webp' %}" id="apps"
+                                onclick="changeImage(this)" alt="">
+                        </label>
+
+                    </div>
+                    <div>
+                        <p>Fruits</p>
+                        <input type="radio" class="input-hidden" name="cat" id="c4" value="c4"></input>
+                        <label for="c4">
+                            <img class="category-image-small" src="{% static 'main/Assets/Categories/fruits-small.webp' %}" id="fruits"
+                                onclick="changeImage(this)" alt="">
+                        </label>
+                    </div>
+                    <div>
+                        <p>Emojis</p>
+                        <input type="radio" class="input-hidden" name="cat" id="c5" value="c5"></input>
+                        <label for="c5">
+                            <img class="category-image-small" src="{% static 'main/Assets/Categories/emoji-small.webp' %}" id="emojis"
+                                onclick="changeImage(this)" alt="">
+                        </label>
+
+                    </div>
+                    <div>
+                        <p>Traffic Signs</p>
+                        <input type="radio" class="input-hidden" name="cat" id="c6" value="c6"></input>
+                        <label for="c6">
+                            <img class="category-image-small" src="{% static 'main/Assets/Categories/traffic-sign-small.webp' %}"
+                                id="traffic" onclick="changeImage(this)" alt="">
+                        </label>
+
+
+                    </div>
+                    <div>
+                        <p>Car Logos</p>
+                        <input type="radio" class="input-hidden" name="cat" id="c7" value="c7"></input>
+                        <label for="c7">
+                            <img class="category-image-small" src=" {% static 'main/Assets/Categories/car-logo-small.webp' %}"
+                                id="car-logos" onclick="changeImage(this)" alt="">
+                        </label>
+
+                    </div>
+                    <div>
+                        <p>Food</p>
+                        <input type="radio" class="input-hidden" name="cat" id="c8" value="c8"></input>
+                        <label for="c8">
+                            <img class="category-image-small" src="{% static 'main/Assets/Categories/food-small.webp' %}" id="food"
+                                onclick="changeImage(this)" alt="">
+                        </label>
+
+                    </div>
+                    <div class="category-submit">
+                        <input class="btn-solid text-light " id="subimt-category" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="category-image-large">
+        </div>
+        <script id="myScript" script="pictures.js" data-category="c4"></script>
+
+    </main>
+
+</body>
+
+</html>
