@@ -33,7 +33,7 @@
             <form action="" class="landing-form flow" method="post">
                 {% csrf_token %}
                 <h1 class="ff-heading form-heading  uppercase">Login</h1>
-                <input class="text-input" type="text" name="email" placeholder="Enter email">
+                <input class="text-input" type="text" name="email" placeholder="Enter email" required>
                 <div class="flex" style="--flex-gap: 2rem;">
                     <input class="btn-solid  text-light" name="type" type="submit" value="Login"></input>
                     <input class="btn-outline bg-transparent text-light" name="type" type="submit" value="Register"></input>
