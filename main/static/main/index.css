@@ -506,8 +506,8 @@ input[type="radio"]:checked + label > img {
   background-position: center;
   background-size: cover;
 }
-#car-logos-bg {
-  background: url("./Assets/Categories/car-logo-large.webp");
+#flower-bg {
+  background: url("./Assets/Categories/flower-large.webp");
   background-position: center;
   background-size: cover;
 }
