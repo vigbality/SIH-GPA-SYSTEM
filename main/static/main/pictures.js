@@ -374,8 +374,7 @@ document.addEventListener(
 function doSubmit() {
   var passwordLength = passwordPattern.split(".").length - 2;
   if (passwordLength < 4) {
-    alert("Password should be greater than 4 images");
-    passwordPattern = "-1";
+    alert("Please select a minimum of 4 images!");
   } else {
     document.getElementById("pwdInput").value = passwordPattern;
     document.getElementById("myForm").submit();

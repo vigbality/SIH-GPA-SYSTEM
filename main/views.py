@@ -56,6 +56,7 @@ def salt(raw_pwd):
 
 def index(request):
     if request.GET:
+        request.session.flush()
         return render(request,'main/index.html')
     elif request.POST:
         data=request.POST.dict()
@@ -81,6 +82,7 @@ def index(request):
         else:
             return render(request,'main/index.html')
     else:
+        request.session.flush()
         return render(request,'main/index.html')
 
 
