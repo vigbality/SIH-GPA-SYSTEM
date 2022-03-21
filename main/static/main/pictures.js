@@ -257,6 +257,7 @@ function backspace() {
 }
 function showPassword(e) {
   const passwordImage = document.querySelectorAll(".passwords-selected");
+
   // e.addEventListener("onmousedown", function () {
   // console.log(passwordImage  .classList);
   for (let i = 0; i < passwordImage.length; i++) {
@@ -265,6 +266,8 @@ function showPassword(e) {
 }
 function hidePassword(e) {
   const passwordImage = document.querySelectorAll(".passwords-selected");
+  console.log(e);
+
   // e.addEventListener("onmousedown", function () {
   // console.log(passwordImage  .classList);
 

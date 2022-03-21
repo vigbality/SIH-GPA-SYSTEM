@@ -34,14 +34,15 @@
                 <div>
                     <h1 class="ff-heading fs-400">Confirm Password</h1>
                 </div>
+                <img hidden src=" {% static 'main/Assets/show.png' %}" onmousedown="showPassword(this)"
+                    onmouseup="hidePassword(this)"></img>
             </div>
         </header>
         <div class="flex passwords" style="--gap: 1.5em">
             <div class="password-pattern confirmed-passwords confirmed-password-pattern">
                 <form action="" class="choose-passwords flex">
                 </form>
-                <button type="button" class="btn-solid text-light bg-purple-mid " onmousedown="showPassword(this)"
-                    onmouseup="hidePassword(this)">Show</button>
+
             </div>
             <div class="password-options" id="test-refresh">
                 <div action="" class="selected-passwords gray-passwords  password-grid">
@@ -50,7 +51,7 @@
             <form id="myForm" action="" class="landing-form flow" method="post">
                 {% csrf_token %}
                 <input type="hidden" id="pwdInput" name="pwdValue" value=""></input>
-                <button type="button" btn-solid text-light" onclick="doSubmit()">Confirm</button>
+                <button type="button" class="btn-solid text-light" onclick="doSubmit()">Confirm</button>
             </form>
         </div>
         <script id="myScript" script="pictures.js" data-category="{{cat}}"></script>
