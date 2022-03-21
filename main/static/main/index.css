@@ -501,7 +501,7 @@ input[type="radio"]:checked + label > img {
   background-size: cover;
 }
 #flower-bg {
-  background: url("./Assets/Categories/flower-large.webp");
+  background: url("./Assets/Categories/flowers-large.jpg");
   background-position: center;
   background-size: cover;
 }
