@@ -14,15 +14,16 @@
     <link rel="stylesheet" href="{% static 'main/index.css' %}">
     <script src="{% static 'main/index.js' %}" defer></script>
     <script src="{% static 'main/pictures.js' %}" defer></script>
-    <title>Category</title>
+    <link rel="icon" href="{% static 'main/Assets/aicte_logo.png' %}">
+
+    <title>SIH - Category</title>
 </head>
 
 <body class="category-page">
-    <main class=" grid grid--categories">
+    <main class=" grid--categories">
         <div class="container flow">
-            <div class="numbered-indicators flex flow bg-dark">
-                <button aria-selected="true" class="bg-grey-mid ff-number  bg-transparent  text-light  btn-bg"><span
-                        class="sr-only">Page
+            <div class="numbered-indicators flex flow">
+                <button aria-selected="true" class="ff-number active text-light"><span class="sr-only">Page
                         Number</span>1</button>
                 <span class="divider"></span>
                 <button aria-selected="false" class="text-light ff-number  bg-transparent"><span class="sr-only">Page
@@ -98,11 +99,11 @@
 
                     </div>
                     <div>
-                        <p>Car Logos</p>
+                        <p>Flowers</p>
                         <input type="radio" class="input-hidden" name="cat" id="c7" value="c7"></input>
                         <label for="c7">
                             <img class="category-image-small"
-                                src=" {% static 'main/Assets/Categories/car-logo-small.webp' %}" id="car-logos"
+                                src=" {% static 'main/Assets/Categories/flowers-small.jpg' %}" id="flowers"
                                 onclick="changeImage(this)" alt="">
                         </label>
 

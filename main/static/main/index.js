@@ -20,8 +20,8 @@ function changeImage(element) {
   if (category === "traffic") {
     categoryImage.setAttribute("id", "traffic-bg");
   }
-  if (category === "car-logos") {
-    categoryImage.setAttribute("id", "car-logos-bg");
+  if (category === "flowers") {
+    categoryImage.setAttribute("id", "flowers-bg");
   }
   if (category === "food") {
     categoryImage.setAttribute("id", "food-bg");

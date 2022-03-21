@@ -237,6 +237,7 @@ function addToPattern(e) {
   patternImage.src = e.src;
   // patternImage.id = e.id;
   patternImage.className = e.className;
+  patternImage.classList.add("passwords-selected");
   if (
     document
       .querySelector(".password-pattern")
@@ -250,9 +251,27 @@ function addToPattern(e) {
 function backspace() {
   console.log("hello");
   const patternImages = document.querySelector(".choose-passwords");
-  console.log(patternImages);
+  // console.log(patternImages);
   // console.log(patternImages.lastChild);
   patternImages.removeChild(patternImages.lastChild);
+}
+function showPassword(e) {
+  const passwordImage = document.querySelectorAll(".passwords-selected");
+  // e.addEventListener("onmousedown", function () {
+  // console.log(passwordImage  .classList);
+  for (let i = 0; i < passwordImage.length; i++) {
+    passwordImage[i].classList.remove("blurred");
+  }
+}
+function hidePassword(e) {
+  const passwordImage = document.querySelectorAll(".passwords-selected");
+  // e.addEventListener("onmousedown", function () {
+  // console.log(passwordImage  .classList);
+
+  for (let i = 0; i < passwordImage.length; i++) {
+    console.log(passwordImage[i]);
+    passwordImage[i].classList.add("blurred");
+  }
 }
 
 function randomiseImage(array) {

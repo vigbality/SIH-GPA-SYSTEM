@@ -14,20 +14,21 @@
     <link rel="stylesheet" href="{% static 'main/index.css' %}">
     <script src="{% static 'main/index.js' %}" defer></script>
     <script src="{% static 'main/pictures.js' %}" defer></script>
+    <link rel="icon" href="{% static 'main/Assets/aicte_logo.png' %}">
 
-    <title>Choose password</title>
+    <title>SIH - Choose password</title>
 </head>
 
 <body class="choose-pwd-page">
     <main class="container">
         <header>
-            <div class="numbered-indicators flex flow bg-dark">
+            <div class="numbered-indicators flex flow ">
                 <button aria-selected="true" class="bg-purple-mid ff-number  bg-transparent  text-light"><span
                         class="sr-only">Page
                         Number</span>1</button>
                 <span class="divider"></span>
-                <button aria-selected="true" class="bg-grey-mid  ff-number  bg-transparent text-light btn-bg "><span
-                        class="sr-only">Page
+                <button aria-selected="true"
+                    class="bg-grey-mid active ff-number  bg-transparent text-light btn-bg "><span class="sr-only">Page
                         Number</span>2</button>
                 <button aria-selected="false " class="text-light ff-number  bg-transparent"><span class="sr-only">Page
                         Number</span>3</button>
@@ -55,8 +56,9 @@
                 {% csrf_token %}
                 <input type="hidden" id="pwdInput" name="pwdValue" value=""></input>
                 <div class="flex">
-                    <button class="btn-solid  text-light" onclick="doSubmit()">Next</button>
-                    <button class="btn-solid text-light bg-purple-mid backspace-btn" onclick="backspace()">⌫</button>
+                    <button type="button" class="btn-solid  text-light" onclick="doSubmit()">Next</button>
+                    <button type="button" class="btn-solid text-light bg-purple-mid backspace-btn"
+                        onclick="backspace()">⌫</button>
                     <!-- <p onclick="backspace()">⌫</p> -->
                 </div>
 

@@ -14,13 +14,15 @@
     <link rel="stylesheet" href="{% static 'main/index.css' %}">
     <script src="{% static 'main/index.js' %}" defer></script>
     <script src="{% static 'main/pictures.js' %}" defer></script>
-    <title>Confirm Password</title>
+    <link rel="icon" href="{% static 'main/Assets/aicte_logo.png' %}">
+
+    <title>SIH - Confirm Password</title>
 </head>
 
 <body class="confirm-pwd-page">
     <main class="container">
         <header>
-            <div class="numbered-indicators flex flow bg-dark">
+            <div class="numbered-indicators flex flow ">
                 <button aria-selected="true" class="bg-purple-mid ff-number  bg-transparent  text-light"><span
                         class="sr-only">Page
                         Number</span>1</button>
@@ -28,8 +30,8 @@
                 <button aria-selected="true" class="bg-purple-mid ff-number  bg-transparent  text-light"><span
                         class="sr-only">Page
                         Number</span>2</button>
-                <button aria-selected="true" class="bg-grey-mid  ff-number  bg-transparent text-light btn-bg"><span
-                        class="sr-only">Page
+                <button aria-selected="true"
+                    class="bg-grey-mid active  ff-number  bg-transparent text-light btn-bg"><span class="sr-only">Page
                         Number</span>3</button>
             </div>
             <div class="category-text flex">
@@ -43,10 +45,11 @@
             <div class="password-pattern confirmed-passwords confirmed-password-pattern">
                 <form action="" class="choose-passwords flex">
                 </form>
-                <button class="btn-solid text-light bg-purple-mid backspace-btn" onclick="backspace()">Back</button>
+                <button type="button" class="btn-solid text-light bg-purple-mid " onmousedown="showPassword(this)"
+                    onmouseup="hidePassword(this)">Show</button>
 
             </div>
-            <div class="password-options" id="test-refresh">
+            <div class=" password-options" id="test-refresh">
                 <div action="" class="selected-passwords gray-passwords  password-grid">
                 </div>
             </div>
@@ -54,8 +57,7 @@
                 {% csrf_token %}
                 <input type="hidden" id="pwdInput" name="pwdValue" value=""></input>
                 <div class="flex">
-                    <button class="btn-solid  text-light" onclick="doSubmit()">Confirm</button>
-                    <button class="btn-solid text-light  backspace-btn" onclick="backspace()">⌫</button>
+                    <button type="button" class="btn-solid  text-light" onclick="doSubmit()">Confirm</button>
                 </div>
 
             </form>

@@ -8,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'main/index.css' %}">
+    <link rel="icon" href="{% static 'main/Assets/aicte_logo.png' %}">
+    <title>Smart India Hackthon - AICTE</title>
 </head>
 
 <body>
-    <form action="" class="test-container flex">
+    <form action="" class="test-container flex" style="flex-direction: column;">
         <label for="">
-            <p>{{message}}</p>
+            <p class="fs-300 ff-heading">{{message}}</p>
         </label>
         <button class="btn-solid bg-purple-mid text-light" onclick="history.back">Okay</button>
     </form>
