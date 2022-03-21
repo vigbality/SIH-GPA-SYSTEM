@@ -34,11 +34,13 @@
                         Number</span>3</button>
             </div>
             <div class="category-text flex">
-                <a href="/" class="back-arrow" ></a>
+                <a href="/" class="back-arrow"></a>
                 <div>
                     <h1 class="ff-heading fs-400">Choose password pattern</h1>
                     <p class="ff-normal">Select min. 4 images</p>
                 </div>
+                <img hidden src=" {% static 'main/Assets/show.png' %}" onmousedown="showPassword(this)"
+                    onmouseup="hidePassword(this)"></img>
             </div>
         </header>
         <div class="flex passwords" style="--gap: 1.5em">

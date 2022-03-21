@@ -344,6 +344,9 @@ input[type="radio"]:checked + label > img {
   flex-direction: column;
   justify-content: space-between;
 }
+.landing-image div {
+  margin: 2rem 0;
+}
 .landing-image img {
   min-width: 20%;
   position: relative;
@@ -566,6 +569,7 @@ input[type="radio"]:checked + label > img {
 
 .choose-passwords {
   display: grid;
+
   grid-template-columns: repeat(10, 1fr);
   margin-bottom: 3rem;
 }
