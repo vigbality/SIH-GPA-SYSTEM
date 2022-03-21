@@ -566,3 +566,8 @@ input[type="radio"]:checked + label > img {
   align-items: center;
   justify-content: center;
 }
+
+.backspace-btn {
+  margin-inline: auto;
+  /* background-color: red; */
+}

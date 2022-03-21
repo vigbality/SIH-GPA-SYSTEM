@@ -235,7 +235,7 @@ function addToPattern(e) {
   const patternContainer = document.querySelector(".choose-passwords");
   const patternImage = document.createElement("img");
   patternImage.src = e.src;
-  patternImage.id = e.id;
+  // patternImage.id = e.id;
   patternImage.className = e.className;
   if (
     document
@@ -247,12 +247,21 @@ function addToPattern(e) {
   patternContainer.appendChild(patternImage);
 }
 
+function backspace() {
+  console.log("hello");
+  const patternImages = document.querySelector(".choose-passwords");
+  console.log(patternImages);
+  // console.log(patternImages.lastChild);
+  patternImages.removeChild(patternImages.lastChild);
+}
+
 function randomiseImage(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
 randomiseImage(ImageLists[cat_chosen]);
 
 //Global variable for password pattern

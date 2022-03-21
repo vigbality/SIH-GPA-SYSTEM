@@ -11,9 +11,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato&family=Share+Tech+Mono&family=VT323&family=Work+Sans&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'main/index.css' %}">
-        <script src="{% static 'main/index.js' %}" defer></script>
-        <script src="{% static 'main/pictures.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'main/index.css' %}">
+    <script src="{% static 'main/index.js' %}" defer></script>
+    <script src="{% static 'main/pictures.js' %}" defer></script>
     <title>Confirm Password</title>
 </head>
 
@@ -43,6 +43,8 @@
             <div class="password-pattern confirmed-passwords confirmed-password-pattern">
                 <form action="" class="choose-passwords flex">
                 </form>
+                <button class="btn-solid text-light bg-purple-mid" onclick="backspace()">Back</button>
+
             </div>
             <div class="password-options" id="test-refresh">
                 <div action="" class="selected-passwords gray-passwords  password-grid">
