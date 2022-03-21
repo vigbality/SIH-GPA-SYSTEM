@@ -180,14 +180,14 @@ def log1(request):
                 if secondsDiff > 600:
                     userObj.failedAttempts=0
                     userObj.save()
-                    return render(request,'main/category.html')
+                    return render(request,'main/categoryL.html')
                 else:
                     minsLeft=secondsDiff//60
                     secsLeft=secondsDiff%60
                     request.session['l']='0'
                     return render(request, "main/message.html",{'message':'Try again after {0} mins and {1} secs!'.format(minsLeft,secsLeft)})
             else:
-                return render(request,'main/category.html')
+                return render(request,'main/categoryL.html')
         else:
             return redirect('log'+lVal+'Page')
 
