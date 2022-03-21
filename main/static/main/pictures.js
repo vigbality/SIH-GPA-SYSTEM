@@ -358,7 +358,6 @@ function doSubmit() {
     alert("Password should be greater than 4 images");
     passwordPattern = "-1";
   } else {
-    alert(passwordPattern);
     document.getElementById("pwdInput").value = passwordPattern;
     document.getElementById("myForm").submit();
   }
