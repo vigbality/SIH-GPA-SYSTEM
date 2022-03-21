@@ -20,8 +20,8 @@ function changeImage(element) {
   if (category === "traffic") {
     categoryImage.setAttribute("id", "traffic-bg");
   }
-  if (category === "car-logos") {
-    categoryImage.setAttribute("id", "car-logos-bg");
+  if (category === "flower") {
+    categoryImage.setAttribute("id", "flower-bg");
   }
   if (category === "food") {
     categoryImage.setAttribute("id", "food-bg");
@@ -52,8 +52,8 @@ preload(
   "./Assets/Categories/traffic-sign-large.webp",
   "./Assets/Categories/food-small.webp",
   "./Assets/Categories/food-large.webp",
-  "./Assets/Categories/car-logo-large.webp",
-  "./Assets/Categories/car-logo-small.webp"
+  "./Assets/Categories/flower-large.webp",
+  "./Assets/Categories/flower-small.webp"
 );
 
 function createDivs() {
