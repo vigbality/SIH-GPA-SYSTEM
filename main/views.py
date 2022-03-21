@@ -109,8 +109,11 @@ def reg1(request):
 def reg2(request):
     if(request.POST):
         data=request.POST.dict()
+        if data['pwdValue']=='':
+            return redirect('reg2Page')
         request.session['pwd1']=data['pwdValue']
         request.session['r']='3'
+        print("\n\n\n-----------------------------",data['pwdValue'])
         return redirect('reg3Page')
     else:
         try:
@@ -128,6 +131,8 @@ def reg2(request):
 def reg3(request):
     if(request.POST):
         data=request.POST.dict()
+        if data['pwdValue']=='':
+            return redirect('reg3Page')
         if request.session['pwd1']!=data['pwdValue']:
             request.session['r']='2'
             return render(request, "main/message.html",{'message':'Entered passwords did not match, try again :('})
@@ -190,6 +195,8 @@ def log2(request):
     if(request.POST):
         userObj=UserData.objects.filter(email=request.session['email']).first()
         data=request.POST.dict()
+        if data['pwdValue']=='':
+            return redirect('log2Page')
         pwdInput=salt(data['pwdValue'])
         if pwdInput == userObj.pwd:
             sendMail(request.session['email'],3,str(now()))

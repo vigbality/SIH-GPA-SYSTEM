@@ -313,11 +313,17 @@ function refreshPage(e) {
   let images = parentForm.querySelectorAll(".password-img");
   const chosenCat = ImageLists[cat_chosen];
   // console.log(chosenCat[1]);
-  randomiseImage(ImageLists[cat_chosen]);
-  for (let i = 0; i < images.length; i++) {
-    console.log("ehllo");
-    images[i].src = ImageLists[cat_chosen][i];
-    // console.log(chosenCat[i]);
+  if (
+    document
+      .querySelector(".password-pattern")
+      .classList.contains("confirmed-password-pattern")
+  ) {
+    randomiseImage(ImageLists[cat_chosen]);
+    for (let i = 0; i < images.length; i++) {
+      console.log("ehllo");
+      images[i].src = ImageLists[cat_chosen][i];
+      // console.log(chosenCat[i]);
+    }
   }
 }
 
@@ -338,10 +344,12 @@ document.addEventListener(
 );
 
 function doSubmit() {
-  var passwordLength = passwordPattern.split(".").length;
+  var passwordLength = passwordPattern.split(".").length - 2;
   if (passwordLength < 4) {
     alert("Password should be greater than 4 images");
+    passwordPattern = "-1";
   } else {
+    alert(passwordPattern);
     document.getElementById("pwdInput").value = passwordPattern;
     document.getElementById("myForm").submit();
   }
