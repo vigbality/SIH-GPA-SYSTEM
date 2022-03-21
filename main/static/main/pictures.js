@@ -235,8 +235,9 @@ function addToPattern(e) {
   const patternContainer = document.querySelector(".choose-passwords");
   const patternImage = document.createElement("img");
   patternImage.src = e.src;
-  patternImage.id = e.id;
+  // patternImage.id = e.id;
   patternImage.className = e.className;
+  patternImage.classList.add("passwords-selected");
   if (
     document
       .querySelector(".password-pattern")
@@ -247,12 +248,39 @@ function addToPattern(e) {
   patternContainer.appendChild(patternImage);
 }
 
+function backspace() {
+  console.log("hello");
+  const patternImages = document.querySelector(".choose-passwords");
+  // console.log(patternImages);
+  // console.log(patternImages.lastChild);
+  patternImages.removeChild(patternImages.lastChild);
+}
+function showPassword(e) {
+  const passwordImage = document.querySelectorAll(".passwords-selected");
+  // e.addEventListener("onmousedown", function () {
+  // console.log(passwordImage  .classList);
+  for (let i = 0; i < passwordImage.length; i++) {
+    passwordImage[i].classList.remove("blurred");
+  }
+}
+function hidePassword(e) {
+  const passwordImage = document.querySelectorAll(".passwords-selected");
+  // e.addEventListener("onmousedown", function () {
+  // console.log(passwordImage  .classList);
+
+  for (let i = 0; i < passwordImage.length; i++) {
+    console.log(passwordImage[i]);
+    passwordImage[i].classList.add("blurred");
+  }
+}
+
 function randomiseImage(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
 randomiseImage(ImageLists[cat_chosen]);
 
 //Global variable for password pattern
@@ -349,7 +377,6 @@ function doSubmit() {
     alert("Password should be greater than 4 images");
     passwordPattern = "-1";
   } else {
-    alert(passwordPattern);
     document.getElementById("pwdInput").value = passwordPattern;
     document.getElementById("myForm").submit();
   }

@@ -1,5 +1,6 @@
 :root {
   /* Colors */
+  --clr-white: 0 0% 100%;
   --clr-dark: 233 43% 4%;
   --clr-purple-dark: 248 52% 36%;
   --clr-purple-mid: 245 46% 56%;
@@ -7,9 +8,9 @@
   --clr-light: 0 0% 97%;
   --clr-warning: 0 70% 49%;
   --clr-selected: 119 48% 49%;
-  --clr-grey-dark: 0, 0%, 66.3%;
+  /* --clr-grey-dark: 0, 0%, 66.3%;
   --clr-grey-mid: 211, 12%, 48%;
-  --clr-grey-light: 0, 0%, 93%;
+  --clr-grey-light: 0, 0%, 93%; */
 
   /* Font sizes */
   --fs-600: 3.125rem;
@@ -182,15 +183,6 @@ button {
 .bg-purple-light {
   background: hsl(var(--clr-purple-light));
 }
-.bg-grey-dark {
-  background: hsl(var(--clr-grey-dark));
-}
-.bg-grey-mid {
-  background: hsl(var(--clr-grey-mid));
-}
-.bg-grey-light {
-  background: hsl(var(--clr-grey-light));
-}
 
 .bg-light {
   background: hsl(var(--clr-light));
@@ -245,6 +237,7 @@ button {
 
 .grid-container {
   grid-template-columns: 1fr 1fr;
+  height: 100vh;
 }
 .grid-container p {
   max-width: 50ch;
@@ -272,9 +265,6 @@ input[type="radio"]:checked + label > img {
   background-color: hsl(var(--clr-purple-dark));
   transition: 0.2s ease-in;
 }
-.btn-bg:hover {
-  background-color: hsl(var(--clr-purple-light));
-}
 
 .btn-outline {
   display: flex;
@@ -296,7 +286,7 @@ input[type="radio"]:checked + label > img {
 
 .numbered-indicators {
   display: block;
-  background-color: inherit;
+  /* background-color: currentColor; */
 }
 
 .numbered-indicators > button {
@@ -306,6 +296,7 @@ input[type="radio"]:checked + label > img {
   aspect-ratio: 1;
   padding: 0 1em;
   border: 4px solid white;
+  font-size: 1.3rem;
 }
 .numbered-indicators > button:not(:last-child):after {
   content: "";
@@ -316,6 +307,9 @@ input[type="radio"]:checked + label > img {
   width: 6.5rem;
   height: 3px;
   display: block;
+}
+.numbered-indicators > button.active {
+  background-color: hsl(var(--clr-white) / 0.5);
 }
 
 .back-arrow {
@@ -348,7 +342,7 @@ input[type="radio"]:checked + label > img {
   height: 100%;
   clip-path: circle(90% at 0% 50%);
 
-  z-index: 10;
+  z-index: 100;
   background: linear-gradient(
       120deg,
       rgba(101, 93, 195, 0.5),
@@ -364,7 +358,7 @@ input[type="radio"]:checked + label > img {
 
 .page-content {
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
   align-items: center;
   justify-content: center;
   z-index: 1;
@@ -399,7 +393,9 @@ input[type="radio"]:checked + label > img {
 }
 
 .grid--categories {
+  display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
   height: 100vh;
 }
 
@@ -463,17 +459,15 @@ input[type="radio"]:checked + label > img {
 }
 
 .category-image-large {
-  /* height: 100vh; */
+  height: 100vh;
   background: hsl(var(--clr-purple-mid));
   transition: left 0.3s linear;
   aspect-ratio: 1;
   clip-path: circle(100% at 100% 50%);
-  /* position: absolute;
-  left: 0;
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out; */
+  /* transition: width 2s, height 2s, background-color 2s, transform 2s; */
+  transition: transform 1s ease-in-out;
+  /* animation-name: crossfade;
+  animation-duration: 2secs; */
 }
 
 #flags-bg {
@@ -492,12 +486,12 @@ input[type="radio"]:checked + label > img {
   background-size: cover;
 }
 #fruits-bg {
-  background: url("./Assets/Categories/fruits-large.webp");
+  background: url("./Assets/Categories/fruits-large.jpg");
   background-position: center;
   background-size: cover;
 }
 #emojis-bg {
-  background: url("./Assets/Categories/emoji-large.webp");
+  background: url("./Assets/Categories/emoji-large.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -512,7 +506,7 @@ input[type="radio"]:checked + label > img {
   background-size: cover;
 }
 #food-bg {
-  background: url("./Assets/Categories/food-large.webp");
+  background: url("./Assets/Categories/food-large.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -565,4 +559,9 @@ input[type="radio"]:checked + label > img {
   width: 100vw;
   align-items: center;
   justify-content: center;
+}
+
+.backspace-btn {
+  margin-inline: auto;
+  /* background-color: red; */
 }

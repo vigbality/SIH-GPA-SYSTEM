@@ -20,9 +20,10 @@ function changeImage(element) {
   if (category === "traffic") {
     categoryImage.setAttribute("id", "traffic-bg");
   }
+
   if (category === "flower") {
     categoryImage.setAttribute("id", "flower-bg");
-  }
+
   if (category === "food") {
     categoryImage.setAttribute("id", "food-bg");
   }
