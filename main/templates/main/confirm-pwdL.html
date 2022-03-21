@@ -50,7 +50,7 @@
             <form id="myForm" action="" class="landing-form flow" method="post">
                 {% csrf_token %}
                 <input type="hidden" id="pwdInput" name="pwdValue" value=""></input>
-                <button class="btn-solid  text-light" onclick="doSubmit()">Confirm</button>
+                <button type="button" btn-solid text-light" onclick="doSubmit()">Confirm</button>
             </form>
         </div>
         <script id="myScript" script="pictures.js" data-category="{{cat}}"></script>
