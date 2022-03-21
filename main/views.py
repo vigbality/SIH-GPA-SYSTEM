@@ -16,10 +16,10 @@ password="byeworld69"
 server=smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
 server.login(sender_email,password)
-message=[["Registartion Successful",'ByeWorld GPA System\n\n\nHey there User!\n\n\nYour Registration  is successful\n\nWelcome on-board!\n\nThanks and regards\nTeam ByeWorld\nbyeworld.sih@gmail.com'],
-["Invalid password",'ByeWorld GPA System\n\n\nHey there User!\n\n the last attempt to login was unsuccessful. Too many wrong attempts might lock your account.\n\n\nFor any help logging in contact-  byeworld.sih@gmail.com \n\n\nThanks and regards\nTeam ByeWorld'],
-["Account Locked",'ByeWorld GPA System\n\n\nHey there User!\n\nWrong password has been entered multiple times so your account is locked for the next 10 minutes .Try again later.\n\n\nFor any help logging in contact-  byeworld.sih@gmail.com \n\n\nThanks and regards\nTeam ByeWorld'],
-["Login Successful",'ByeWorld GPA System\n\n\nHey there User!\n\nWelcome, Your login was successful.\n\n\nAny feedbacks to improve user experience or if you faced any problems logging in let us know through - byewrold.sih@gmail.com\n\n\nThanks and regards\nTeam ByeWorld']]
+message=[["Registartion Successful",'ByeWorld GPA System\n\n\nHey there User!\nYour Registration is successful\n\nWelcome on-board!\n\nThanks and regards\nTeam ByeWorld\nbyeworld.sih@gmail.com'],
+["Invalid password",'ByeWorld GPA System\n\n\nHey there User!\nThe last attempt to login was unsuccessful. Too many wrong attempts might lock your account.\n\nFor any help logging in contact - byeworld.sih@gmail.com\n\nThanks and regards\nTeam ByeWorld'],
+["Account Locked",'ByeWorld GPA System\n\n\nHey there User!\nWrong password has been entered multiple times so your account has been locked for the next 10 minutes. Try again later.\n\nFor any help logging in contact - byeworld.sih@gmail.com \n\nThanks and regards\nTeam ByeWorld'],
+["Login Successful",'ByeWorld GPA System\n\n\nHey there User!\nWelcome, your login was successful.\n\nIf you have any feedbacks to improve user experience, or if you faced any problems logging in, please let us know through - byewrold.sih@gmail.com\n\nThanks and regards\nTeam ByeWorld']]
 
 def sendMail(username,x,timeStamp):
     msg = MIMEMultipart()
@@ -56,6 +56,7 @@ def salt(raw_pwd):
 
 def index(request):
     if request.GET:
+        request.session.flush()
         return render(request,'main/index.html')
     elif request.POST:
         data=request.POST.dict()
@@ -81,6 +82,7 @@ def index(request):
         else:
             return render(request,'main/index.html')
     else:
+        request.session.flush()
         return render(request,'main/index.html')
 
 
@@ -180,14 +182,14 @@ def log1(request):
                 if secondsDiff > 600:
                     userObj.failedAttempts=0
                     userObj.save()
-                    return render(request,'main/category.html')
+                    return render(request,'main/categoryL.html')
                 else:
                     minsLeft=secondsDiff//60
                     secsLeft=secondsDiff%60
                     request.session['l']='0'
                     return render(request, "main/message.html",{'message':'Try again after {0} mins and {1} secs!'.format(minsLeft,secsLeft)})
             else:
-                return render(request,'main/category.html')
+                return render(request,'main/categoryL.html')
         else:
             return redirect('log'+lVal+'Page')
 
