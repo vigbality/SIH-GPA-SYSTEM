@@ -33,7 +33,7 @@
                         Number</span>3</button>
             </div>
             <div class="category-text flex">
-                <a href="#" class="back-arrow"></a>
+                <a href="#" class="back-arrow" onclick="history.back(); history.back()"></a>
                 <div>
                     <h1 class="ff-heading fs-400">Confirm Password</h1>
                 </div>
@@ -43,7 +43,7 @@
             <div class="password-pattern confirmed-passwords confirmed-password-pattern">
                 <form action="" class="choose-passwords flex">
                 </form>
-                <button class="btn-solid text-light bg-purple-mid" onclick="backspace()">Back</button>
+                <button class="btn-solid text-light bg-purple-mid backspace-btn" onclick="backspace()">Back</button>
 
             </div>
             <div class="password-options" id="test-refresh">
@@ -53,7 +53,11 @@
             <form id="myForm" action="" class="landing-form flow" method="post">
                 {% csrf_token %}
                 <input type="hidden" id="pwdInput" name="pwdValue" value=""></input>
-                <button class="btn-solid  text-light" onclick="doSubmit()">Confirm</button>
+                <div class="flex">
+                    <button class="btn-solid  text-light" onclick="doSubmit()">Confirm</button>
+                    <button class="btn-solid text-light  backspace-btn" onclick="backspace()">⌫</button>
+                </div>
+
             </form>
         </div>
         <script id="myScript" script="pictures.js" data-category="{{cat}}"></script>

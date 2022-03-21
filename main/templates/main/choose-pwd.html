@@ -33,7 +33,7 @@
                         Number</span>3</button>
             </div>
             <div class="category-text flex">
-                <a href="#" class="back-arrow"></a>
+                <a href="#" class="back-arrow" onclick="history.back(); history.back()"></a>
                 <div>
                     <h1 class="ff-heading fs-400">Choose password pattern</h1>
                     <p class="ff-normal">Select min. 4 images</p>
@@ -44,17 +44,23 @@
             <div class="password-pattern">
                 <form action="" class="choose-passwords flex">
                 </form>
-                <button class="btn-solid text-light bg-purple-mid backspace-btn" onclick="backspace()">Back</button>
             </div>
             <div class="password-options">
                 <div action="" class="">
                     <div class="selected-passwords password-grid"></div>
                 </div>
+
             </div>
             <form id="myForm" action="" class="landing-form flow" method="post">
                 {% csrf_token %}
                 <input type="hidden" id="pwdInput" name="pwdValue" value=""></input>
-                <button class="btn-solid  text-light" onclick="doSubmit()">Next</button>
+                <div class="flex">
+                    <button class="btn-solid  text-light" onclick="doSubmit()">Next</button>
+                    <button class="btn-solid text-light bg-purple-mid backspace-btn" onclick="backspace()">⌫</button>
+                    <!-- <p onclick="backspace()">⌫</p> -->
+                </div>
+
+
             </form>
 
         </div>
