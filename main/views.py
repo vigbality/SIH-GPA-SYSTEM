@@ -210,11 +210,19 @@ def reg3(request):
             request.session['r']='2'
             return render(request, "main/error-message.html",{'message':'Entered passwords did not match, try again :('})
         else:
-            UserData(email=request.session['email'],pwd=salt(data['pwdValue']),failedAttempts=0,lastLoginTime=str(now())).save()
-            sendMail(request.session['email'],0,str(now()))
-            request.session['r']='0'
-            request.session.flush()
-            return render(request, "main/success-message.html",{'message':'Registration was successful!'})
+            userObj=UserData.objects.filter(email=request.session['email']).first()
+            if userObj==None:
+                UserData(email=request.session['email'],pwd=salt(data['pwdValue']),failedAttempts=0,lastLoginTime=str(now())).save()
+                sendMail(request.session['email'],0,str(now()))
+                request.session['r']='0'
+                request.session.flush()
+                return render(request, "main/success-message.html",{'message':'Registration was successful!'})
+            else:
+                userObj.pwd=salt(data['pwdValue'])
+                userObj.failedAttempts=0
+                userObj.save()
+                request.session.flush()
+                return render(request, "main/success-message.html",{'message':'Password reset was successful!'})
     else:
         try:
             rVal=request.session['r']
