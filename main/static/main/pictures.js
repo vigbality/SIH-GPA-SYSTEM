@@ -225,6 +225,8 @@ const ImageLists = {
   c7: ImageListFlowers,
   c8: ImageListFood,
 };
+//Global variable for password pattern
+let passwordPattern = ".";
 // console.log(ImageLists["c1"].length);
 var categoryScript = document.getElementById("myScript");
 var cat_chosen = categoryScript.getAttribute("data-category");
@@ -254,6 +256,12 @@ function backspace() {
   // console.log(patternImages);
   // console.log(patternImages.lastChild);
   patternImages.removeChild(patternImages.lastChild);
+  if (passwordPattern != ".") {
+    temp = passwordPattern.split(".");
+    temp.splice(temp.length - 2, 1);
+    passwordPattern = temp.join(".");
+  }
+  console.log(passwordPattern);
 }
 function showPassword(e) {
   const passwordImage = document.querySelectorAll(".passwords-selected");
@@ -285,9 +293,6 @@ function randomiseImage(array) {
 }
 
 randomiseImage(ImageLists[cat_chosen]);
-
-//Global variable for password pattern
-let passwordPattern = ".";
 
 function parseString(string) {
   var splitWords = string.split("/");
