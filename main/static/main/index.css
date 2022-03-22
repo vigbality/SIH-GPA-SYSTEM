@@ -17,6 +17,7 @@
   --fs-500: 2.625rem;
   --fs-400: 1.875rem;
   --fs-300: 1.375rem;
+  --fs-200: 1rem;
 
   /* Fonts */
   --ff-heading: "Share Tech Mono", monospace;
@@ -210,6 +211,12 @@ button {
 .text-purple-light {
   color: hsl(var(--clr-purple-light));
 }
+.text-purple-mid {
+  color: hsl(var(--clr-purple-mid));
+}
+.text-purple-dark {
+  color: hsl(var(--clr-purple-dark));
+}
 
 /* Font sizes */
 .fs-600 {
@@ -328,9 +335,10 @@ input[type="radio"]:checked + label > img {
 }
 .text-input {
   padding: 0.7em;
-  width: 24rem;
+  width: 22.3rem;
   border-radius: 15px;
   border: 0;
+  /* font-size: px; */
 }
 
 /* Page specific Content */
@@ -405,6 +413,8 @@ input[type="radio"]:checked + label > img {
 }
 .form-heading {
   text-align: center;
+  font-weight: bold;
+  letter-spacing: 5px;
 }
 
 .landing-form > a {
@@ -596,6 +606,31 @@ input[type="radio"]:checked + label > img {
   /* width: 420%; */
   padding-left: 35%;
   padding-top: 10%;
+}
+.pop-up {
+  position: absolute;
+
+  width: 24.4rem;
+  height: 10rem;
+  background: hsl(var(--clr-purple-dark));
+  /* backdrop-filter: blur(0.9rem); */
+  left: 53.5%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 15px;
+
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  top: 20%;
+  border: 2px solid hsl(var(--clr-warning));
+  display: none;
+  z-index: 1000;
+}
+.pop-up p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: var(--ff-heading);
 }
 .message-box {
   position: absolute;
