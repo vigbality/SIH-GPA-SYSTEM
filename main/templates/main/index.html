@@ -35,13 +35,13 @@
             <form action="" class="landing-form flow" method="post">
                 {% csrf_token %}
                 <h1 class="ff-heading form-heading  uppercase">Login</h1>
-                <input class="text-input" type="email" name="email" placeholder="Enter email" required>
+                <input class="text-input" type="email" name="email" placeholder="Enter email" required autofocus>
                 <div class="flex" style="--flex-gap: 2rem;">
                     <input class="btn-solid  text-light" name="type" type="submit" value="Login"></input>
                     <input class="btn-outline bg-transparent text-light" name="type" type="submit"
                         value="Register"></input>
                 </div>
-
+                <input type="submit" href="" class="text-white forgot-btn" value="Forgot password"></input>
                 <!-- <a href="#" class="text-light">Forgot password?</a> -->
             </form>
         </main>
