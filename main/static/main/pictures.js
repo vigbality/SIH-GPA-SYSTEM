@@ -134,31 +134,31 @@ const ImageListFruits = [
   "static/main/Assets/Password Images/Fruits/125.jpg",
 ];
 const ImageListFlowers = [
-  "static/main/Assets/Password Images/Flowers/126.jpg",
-  "static/main/Assets/Password Images/Flowers/127.jpg",
-  "static/main/Assets/Password Images/Flowers/128.jpg",
-  "static/main/Assets/Password Images/Flowers/129.jpg",
-  "static/main/Assets/Password Images/Flowers/130.jpg",
-  "static/main/Assets/Password Images/Flowers/131.jpg",
-  "static/main/Assets/Password Images/Flowers/132.jpg",
-  "static/main/Assets/Password Images/Flowers/133.jpg",
-  "static/main/Assets/Password Images/Flowers/134.jpg",
-  "static/main/Assets/Password Images/Flowers/135.jpg",
-  "static/main/Assets/Password Images/Flowers/136.jpg",
-  "static/main/Assets/Password Images/Flowers/137.jpg",
-  "static/main/Assets/Password Images/Flowers/138.jpg",
-  "static/main/Assets/Password Images/Flowers/139.jpg",
-  "static/main/Assets/Password Images/Flowers/140.jpg",
-  "static/main/Assets/Password Images/Flowers/141.jpg",
-  "static/main/Assets/Password Images/Flowers/142.jpg",
-  "static/main/Assets/Password Images/Flowers/143.jpg",
-  "static/main/Assets/Password Images/Flowers/144.jpg",
-  "static/main/Assets/Password Images/Flowers/145.jpg",
-  "static/main/Assets/Password Images/Flowers/146.jpg",
-  "static/main/Assets/Password Images/Flowers/147.jpg",
-  "static/main/Assets/Password Images/Flowers/148.jpg",
-  "static/main/Assets/Password Images/Flowers/149.jpg",
-  "static/main/Assets/Password Images/Flowers/150.jpg",
+  "static/main/Assets/Password Images/Instruments/126.jpg",
+  "static/main/Assets/Password Images/Instruments/127.jpg",
+  "static/main/Assets/Password Images/Instruments/128.jpg",
+  "static/main/Assets/Password Images/Instruments/129.jpg",
+  "static/main/Assets/Password Images/Instruments/130.jpg",
+  "static/main/Assets/Password Images/Instruments/131.jpg",
+  "static/main/Assets/Password Images/Instruments/132.jpg",
+  "static/main/Assets/Password Images/Instruments/133.jpg",
+  "static/main/Assets/Password Images/Instruments/134.jpg",
+  "static/main/Assets/Password Images/Instruments/135.jpg",
+  "static/main/Assets/Password Images/Instruments/136.jpg",
+  "static/main/Assets/Password Images/Instruments/137.jpg",
+  "static/main/Assets/Password Images/Instruments/138.jpg",
+  "static/main/Assets/Password Images/Instruments/139.jpg",
+  "static/main/Assets/Password Images/Instruments/140.jpg",
+  "static/main/Assets/Password Images/Instruments/141.jpeg",
+  "static/main/Assets/Password Images/Instruments/142.jpg",
+  "static/main/Assets/Password Images/Instruments/143.jpg",
+  "static/main/Assets/Password Images/Instruments/144.jpg",
+  "static/main/Assets/Password Images/Instruments/145.jpg",
+  "static/main/Assets/Password Images/Instruments/146.jpg",
+  "static/main/Assets/Password Images/Instruments/147.jpg",
+  "static/main/Assets/Password Images/Instruments/148.jpg",
+  "static/main/Assets/Password Images/Instruments/149.jpg",
+  "static/main/Assets/Password Images/Instruments/150.jpg",
 ];
 const ImageListFood = [
   "static/main/Assets/Password Images/Foods/151.jpg",
@@ -287,7 +287,13 @@ function hidePassword(e) {
 
 function showPopUp() {
   const passwordPop = document.querySelector("#password-pop");
+  console.log(passwordPop);
   passwordPop.style.display = "block";
+}
+function hidePopup() {
+  const passwordPop = document.querySelector("#password-pop");
+
+  passwordPop.style.display = "none";
 }
 
 function randomiseImage(array) {
