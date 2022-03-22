@@ -27,7 +27,7 @@ def sendMail(username,x,timeStamp):
     msg['From'] = sender_email
     msg['To'] = username
 
-    text = MIMEText(timeStamp+"\n\n"+message[x][1])
+    text = MIMEText(message[x][1])
     msg.attach(text)
     try:
         server.sendmail(sender_email,username,msg.as_string())
@@ -66,7 +66,7 @@ def index(request):
         if userType=='Login':
             userObj=UserData.objects.filter(email=userEmail).first()
             if userObj==None:
-                return render(request, "main/message.html",{'message':'Email is not registered with us, please sign up first :)'})
+                return render(request, "main/error-message.html",{'message':'Email is not registered with us, please sign up first :)'})
             else:
                 request.session['email']=userEmail
                 request.session['l']='1'
@@ -74,7 +74,7 @@ def index(request):
         elif userType=='Register':
             userObj=UserData.objects.filter(email=userEmail).first()
             if userObj != None:
-                return render(request, "main/message.html",{'message':'Email already exists, please go ahead and login :)'})
+                return render(request, "main/error-message.html",{'message':'Email already exists, please go ahead and login :)'})
             else:
                 request.session['email']=userEmail
                 request.session['r']='1'
@@ -137,13 +137,13 @@ def reg3(request):
             return redirect('reg3Page')
         if request.session['pwd1']!=data['pwdValue']:
             request.session['r']='2'
-            return render(request, "main/message.html",{'message':'Entered passwords did not match, try again :('})
+            return render(request, "main/error-message.html",{'message':'Entered passwords did not match, try again :('})
         else:
             UserData(email=request.session['email'],pwd=salt(data['pwdValue']),failedAttempts=0,lastLoginTime=str(now())).save()
             sendMail(request.session['email'],0,str(now()))
             request.session['r']='0'
             request.session.flush()
-            return render(request, "main/message.html",{'message':'Registration was successful!'})
+            return render(request, "main/success-message.html",{'message':'Registration was successful!'})
     else:
         try:
             rVal=request.session['r']
@@ -187,7 +187,7 @@ def log1(request):
                     minsLeft=secondsDiff//60
                     secsLeft=secondsDiff%60
                     request.session['l']='0'
-                    return render(request, "main/message.html",{'message':'Try again after {0} mins and {1} secs!'.format(minsLeft,secsLeft)})
+                    return render(request, "main/error-message.html",{'message':'Try again after {0} mins and {1} secs!'.format(minsLeft,secsLeft)})
             else:
                 return render(request,'main/categoryL.html')
         else:
@@ -204,7 +204,7 @@ def log2(request):
             sendMail(request.session['email'],3,str(now()))
             request.session['l']='0'
             request.session.flush()
-            return render(request, "main/message.html",{'message':'Login was successful!'})
+            return render(request, "main/success-message.html",{'message':'Login was successful!'})
         else:
             if userObj.failedAttempts==2:
                 userObj.failedAttempts=3
@@ -213,7 +213,7 @@ def log2(request):
                 sendMail(request.session['email'],2,str(now()))
                 request.session['l']='0'
                 request.session.flush()
-                return render(request, "main/message.html",{'message':'Too many wrong attempts! Account locked for 10 mins!'})
+                return render(request, "main/error-message.html",{'message':'Too many wrong attempts! Account locked for 10 mins!'})
             else:
                 userObj.failedAttempts+=1
                 userObj.lastLoginTime=str(now())
@@ -221,7 +221,7 @@ def log2(request):
                 sendMail(request.session['email'],1,str(now()))
                 request.session['l']='0'
                 request.session.flush()
-                return render(request, "main/message.html",{'message':'Invalid password, {} attempts remaining!'.format(3-userObj.failedAttempts)})
+                return render(request, "main/error-message.html",{'message':'Invalid password, {} attempts remaining!'.format(3-userObj.failedAttempts)})
            
     else:
         try:

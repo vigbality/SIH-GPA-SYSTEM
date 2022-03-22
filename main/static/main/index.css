@@ -597,11 +597,27 @@ input[type="radio"]:checked + label > img {
   padding-left: 35%;
   padding-top: 10%;
 }
-.test-container {
-  height: 100vh;
-  width: 100vw;
+.message-box {
+  position: absolute;
+  width: 50rem;
+  height: 20rem;
+  background: hsl(var(--clr-white) / 0.05);
+  backdrop-filter: blur(0.3rem);
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 15px;
+
+  padding: 10px;
   align-items: center;
   justify-content: center;
+  top: 50%;
+}
+.error {
+  border: 2px solid hsl(var(--clr-warning));
+}
+.success {
+  border: 2px solid hsl(var(--clr-selected));
 }
 
 .backspace-btn {
