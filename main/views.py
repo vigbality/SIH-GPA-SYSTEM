@@ -1,13 +1,16 @@
 import email
 from django.shortcuts import redirect, render,HttpResponse
 from flask import session
+from rx import generate
 from .models import UserData
 from datetime import datetime
 import hashlib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
+from random import randint
 
+generateOTP=randint
 now=datetime.now
 parseDate=datetime.strptime
 parseDate=datetime.strptime
@@ -20,6 +23,11 @@ message=[["Registartion Successful",'ByeWorld GPA System\n\n\nHey there User!\nY
 ["Invalid password",'ByeWorld GPA System\n\n\nHey there User!\nThe last attempt to login was unsuccessful. Too many wrong attempts might lock your account.\n\nFor any help logging in contact - byeworld.sih@gmail.com\n\nThanks and regards\nTeam ByeWorld'],
 ["Account Locked",'ByeWorld GPA System\n\n\nHey there User!\nWrong password has been entered multiple times so your account has been locked for the next 10 minutes. Try again later.\n\nFor any help logging in contact - byeworld.sih@gmail.com \n\nThanks and regards\nTeam ByeWorld'],
 ["Login Successful",'ByeWorld GPA System\n\n\nHey there User!\nWelcome, your login was successful.\n\nIf you have any feedbacks to improve user experience, or if you faced any problems logging in, please let us know through - byewrold.sih@gmail.com\n\nThanks and regards\nTeam ByeWorld']]
+otpmessage=[
+["OTP to confirm email",'ByeWorld GPA System\n\n\nHey there User!\n\n\nYour OTP to confirm your email - \n\n \n\nThanks and regards\nTeam ByeWorld\nbyeworld.sih@gmail.com'],
+["OTP to reset password",'ByeWorld GPA System\n\n\nHey there User!\n\n\nYour OTP to reset your password- \n\n \n\nThanks and regards\nTeam ByeWorld\nbyeworld.sih@gmail.com']]
+
+
 
 def sendMail(username,x,timeStamp):
     msg = MIMEMultipart()
@@ -32,7 +40,28 @@ def sendMail(username,x,timeStamp):
     try:
         server.sendmail(sender_email,username,msg.as_string())
     except:
-        pass
+        print("email failed")
+
+
+
+def sendOTP(username,x,otp):
+    msg = MIMEMultipart()
+    msg['Subject'] = otpmessage[x][0]
+    msg['From'] = sender_email
+    msg['To'] = username
+    try:
+            otpmsg=otpmessage[x][1]
+            ind=otpmsg.find("-")
+            otpmsg=otpmsg[:ind+1]+str(otp)+otpmsg[ind+1:]
+            text = MIMEText(otpmsg)
+            msg.attach(text)
+            server.sendmail(sender_email,username,msg.as_string())
+    except:
+        print("otp email failed")
+
+
+
+
 
 def salt(raw_pwd):
     '''
@@ -77,14 +106,56 @@ def index(request):
                 return render(request, "main/error-message.html",{'message':'Email already exists, please go ahead and login :)'})
             else:
                 request.session['email']=userEmail
-                request.session['r']='1'
-                return redirect('reg1Page')
+                request.session['r']='4' # actually 0 but using 4, for OTP step, cuz 0 is for null
+                otpVal=generateOTP(1000,9999)
+                request.session['otp']=otpVal
+                sendOTP(userEmail,0,otpVal)
+                return redirect('reg0Page')
+        elif userType=='Forgot password?':
+            userObj=UserData.objects.filter(email=userEmail).first()
+            if userObj==None:
+                return render(request, "main/error-message.html",{'message':'Email is not registered with us, please sign up first :)'})
+            else:
+                request.session['email']=userEmail
+                otpVal=generateOTP(1000,9999)
+                request.session['otp']=otpVal
+                sendOTP(userEmail,1,otpVal)
+                request.session['p']='1'
+                return redirect('resetPwdPage')
         else:
             return render(request,'main/index.html')
     else:
         request.session.flush()
         return render(request,'main/index.html')
 
+
+
+
+
+
+
+def reg0(request):#for OTP
+    if(request.POST):
+        data=request.POST.dict()
+        userOTP=data["otp"]
+        if str(userOTP) == str(request.session['otp']):
+            request.session['r']='1'
+            return redirect('reg1Page')
+        else:
+            request.session['r']='0'
+            return render(request, "main/error-message.html",{'message':'Entered OTP is incorrect, Email validation failed!'})
+    else:
+        try:
+            rVal=request.session['r']
+        except:
+            rVal='0'
+
+        if  rVal == '0':
+            return redirect('indexPage')
+        elif rVal == '4':
+            return render(request, "main/confirm-mail.html",{'id':request.session['email']})
+        else:
+            return redirect('reg'+rVal+'Page')
 
 
 def reg1(request):
@@ -235,3 +306,27 @@ def log2(request):
             return render(request, "main/confirm-pwdL.html",{'cat':request.session['cat_chosen']})
         else:
             return redirect('reg'+lVal+'Page')
+
+def resetPwd(request):
+    if(request.POST):
+        data=request.POST.dict()
+        userOTP=data["otp"]
+        if str(userOTP) == str(request.session['otp']):
+            request.session['r']='1'
+            request.session['p']='0'
+            return redirect('reg1Page')
+        else:
+            request.session['p']='0'
+            return render(request, "main/error-message.html",{'message':'Entered OTP is incorrect, cannot reset your password :('})
+    else:
+        try:
+            pVal=request.session['p']
+        except:
+            pVal='0'
+
+        if  pVal == '0':
+            return redirect('indexPage')
+        elif pVal == '1':
+            return render(request, "main/reset.html",{'id':request.session['email']})
+        else:
+            return redirect('indexPage')
