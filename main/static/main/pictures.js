@@ -285,6 +285,11 @@ function hidePassword(e) {
   }
 }
 
+function showPopUp() {
+  const passwordPop = document.querySelector("#password-pop");
+  passwordPop.style.display = "block";
+}
+
 function randomiseImage(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -382,7 +387,7 @@ document.addEventListener(
 function doSubmit() {
   var passwordLength = passwordPattern.split(".").length - 2;
   if (passwordLength < 4) {
-    alert("Please select a minimum of 4 images!");
+    showPopUp();
   } else {
     document.getElementById("pwdInput").value = passwordPattern;
     document.getElementById("myForm").submit();

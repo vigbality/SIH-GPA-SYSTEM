@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'main/index.css' %}">
+    <link rel="icon" href="{% static 'main/Assets/aicte_logo.png' %}">
+    <title>Smart India Hackthon - AICTE</title>
+</head>
+
+<body>
+    <div class="container flow">
+        <section class="category-text flex">
+            <div>
+                <a href="/" class="back-arrow"></a>
+                <div>
+                    <h1 class="ff-heading fs-400">Reset Passwords</h1>
+                </div>
+            </div>
+
+        </section>
+        <form action="" class="message-box reset flex flow" style="flex-direction: column;">
+
+            <p class="fs-300 ff-heading">Enter the 4-digit One Time Password sent to your mail ID</p>
+            <p>(my*****@gmail.com)</p>
+            <input type="text" class="text-input" placeholder="Enter OTP">
+            <button class="btn-solid bg-purple-mid text-light" type="button"
+                onclick="window.location.href = '/'">Okay</button>
+        </form>
+    </div>
+</body>
+
+</html>
