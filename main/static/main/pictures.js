@@ -393,6 +393,7 @@ document.addEventListener(
 function doSubmit() {
   var passwordLength = passwordPattern.split(".").length - 2;
   if (passwordLength < 4) {
+    // alert("Choose minimum 4 passwords");
     showPopUp();
   } else {
     document.getElementById("pwdInput").value = passwordPattern;
