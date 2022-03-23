@@ -59,7 +59,19 @@
                 <button type="button" class="btn-solid text-light" onclick="doSubmit()">Confirm</button>
 
             </form>
+            <div class="pop-up " id="password-pop">
+                <div class="pop-up-content flex" style="flex-direction: column;">
+                    <div class="pop-up-header">
+                        <h1>User Note:</h1>
+                    </div>
+                    <p>The images will be blurred while hovering.
+                        Images will also be shuffled on each click!</p>
+                    <button class="btn-outline text-purple-dark fs-200" onclick="hidePopup()">OK</button>
+                </div>
+            </div>
+
         </div>
+        
         <script id="myScript" script="pictures.js" data-category="{{cat}}"></script>
 
 
