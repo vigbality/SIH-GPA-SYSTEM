@@ -250,6 +250,40 @@ function addToPattern(e) {
   patternContainer.appendChild(patternImage);
 }
 
+// document.querySelector("#snap").click
+function takeshot() {
+  const screenshotTarget = document.body;
+
+  html2canvas(screenshotTarget).then((canvas) => {
+    // var queue = html2canvas.parse();
+    // var canvas = html2canvas.render(queue, { elements: { length: 1 } });
+    // var img = canvas.toDataURL();
+    // window.open(img);
+    saveAs(canvas.toDataURL("image/png"), "screenshot.png");
+  });
+  console.log(window.location.href);
+  return false;
+}
+function saveAs(uri, filename) {
+  var link = document.createElement("a");
+
+  if (typeof link.download === "string") {
+    link.href = uri;
+    link.download = filename;
+
+    //Firefox requires the link to be in the body
+    document.body.appendChild(link);
+
+    //simulate click
+    link.click();
+
+    //remove the link when done
+    document.body.removeChild(link);
+  } else {
+    window.open(uri);
+  }
+}
+
 function backspace() {
   console.log("hello");
   const patternImages = document.querySelector(".choose-passwords");
