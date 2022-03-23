@@ -46,7 +46,8 @@
 
                 <div>
                     <img draggable="false" src=" {% static 'main/Assets/show.png' %}" onmousedown="showPassword(this)"
-                        onmouseup="hidePassword(this)" style="margin-inline: 1rem;"></img>
+                        onmouseup="hidePassword(this)" onmouseleave="hidePassword(this)"
+                        style="margin-inline: 1rem;"></img>
                     <img src=" {% static 'main/Assets/backspace.png' %}" onclick="backspace()"
                         style="align-self: end;"></img>
                 </div>
