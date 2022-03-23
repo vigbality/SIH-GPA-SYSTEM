@@ -19,7 +19,7 @@ const ImageListFlags = [
   "static/main/Assets/Password Images/Flags/18.jpg",
   "static/main/Assets/Password Images/Flags/19.jpg",
   "static/main/Assets/Password Images/Flags/20.jpg",
-  "static/main/Assets/Password Images/Flags/21.png",
+  "static/main/Assets/Password Images/Flags/21.jpg",
   "static/main/Assets/Password Images/Flags/22.jpg",
   "static/main/Assets/Password Images/Flags/23.jpg",
   "static/main/Assets/Password Images/Flags/24.jpg",
