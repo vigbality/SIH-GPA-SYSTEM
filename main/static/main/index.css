@@ -290,6 +290,7 @@ input[type="radio"]:checked + label > img {
   border: 1px solid hsl(var(--clr-light));
   max-width: 5rem;
 }
+
 .blurred {
   filter: contrast(0);
 }
@@ -629,6 +630,7 @@ input[type="radio"]:checked + label > img {
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
+
 .pop-up-header {
   background-color: white;
   color: hsl(var(--clr-dark));
@@ -641,6 +643,9 @@ input[type="radio"]:checked + label > img {
   /* padding: 20px; */
   border: 1px solid #888;
   width: 30%; /* Could be more or less, depending on screen size */
+}
+.pop-up-password {
+  border: 3px solid red;
 }
 .pop-up p {
   text-align: center;
