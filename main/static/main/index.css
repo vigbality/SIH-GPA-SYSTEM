@@ -698,3 +698,12 @@ input[type="radio"]:checked + label > img {
   border-radius: 5px;
   height: 50px;
 }
+.html2canvas-container {
+  width: 300x !important;
+  height: 300px !important;
+  background-color: blue;
+}
+/* {
+  width: 3000px !important;
+  height: 3000px !important;
+} */

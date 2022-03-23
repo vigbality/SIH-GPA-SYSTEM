@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{% static 'main/index.css' %}">
     <script src="{% static 'main/index.js' %}" defer></script>
     <script src="{% static 'main/pictures.js' %}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js" defer>
+    </script>
     <link rel="icon" href="{% static 'main/Assets/aicte_logo.png' %}">
 
     <title>SIH - Choose password</title>
@@ -51,6 +53,8 @@
                 <div>
                     <img src=" {% static 'main/Assets/backspace.png' %}" onclick="backspace()"
                         style="align-self: end;"></img>
+                    <img src=" {% static 'main/Assets/screenshot.png' %}" onclick="takeshot()"
+                        style="align-self: end; width: 40%;"></img>
                 </div>
             </div>
         </header>
@@ -59,6 +63,7 @@
                 <form action="" class="choose-passwords flex">
                 </form>
             </div>
+
             <div class="password-options">
                 <div action="" class="">
                     <div class="selected-passwords password-grid"></div>
@@ -71,10 +76,8 @@
                 <div class="flex">
                     <button type="button" class="btn-solid  text-light" onclick="doSubmit()">Next</button>
                 </div>
-
-
             </form>
-            <div class="pop-up d-none" id="password-pop">
+            <div class=" pop-up d-none" id="password-pop">
                 <div class="pop-up-content flex" style="flex-direction: column;">
                     <div class="pop-up-header">
                         <h1>User Note:</h1>
