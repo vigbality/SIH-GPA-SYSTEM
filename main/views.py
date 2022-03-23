@@ -18,7 +18,8 @@ sender_email="byeworld.sih@gmail.com"
 password="byeworld69"
 server=smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
-server.login(sender_email,password)
+# server.starttls()
+# server.login(sender_email,password)
 message=[["Registartion Successful",'ByeWorld GPA System\n\n\nHey there User!\nYour Registration is successful\n\nWelcome on-board!\n\nThanks and regards\nTeam ByeWorld\nbyeworld.sih@gmail.com'],
 ["Invalid password",'ByeWorld GPA System\n\n\nHey there User!\nThe last attempt to login was unsuccessful. Too many wrong attempts might lock your account.\n\nFor any help logging in contact - byeworld.sih@gmail.com\n\nThanks and regards\nTeam ByeWorld'],
 ["Account Locked",'ByeWorld GPA System\n\n\nHey there User!\nWrong password has been entered multiple times so your account has been locked for the next 10 minutes. Try again later.\n\nFor any help logging in contact - byeworld.sih@gmail.com \n\nThanks and regards\nTeam ByeWorld'],
@@ -30,6 +31,8 @@ otpmessage=[
 
 
 def sendMail(username,x,timeStamp):
+    global server,sender_email,password
+    server.login(sender_email,password)
     msg = MIMEMultipart()
     msg['Subject'] = message[x][0]
     msg['From'] = sender_email
@@ -45,6 +48,8 @@ def sendMail(username,x,timeStamp):
 
 
 def sendOTP(username,x,otp):
+    global server,sender_email,password
+    server.login(sender_email,password)
     msg = MIMEMultipart()
     msg['Subject'] = otpmessage[x][0]
     msg['From'] = sender_email
