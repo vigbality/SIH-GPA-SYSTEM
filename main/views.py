@@ -16,8 +16,7 @@ parseDate=datetime.strptime
 parseDate=datetime.strptime
 sender_email="byeworld.sih@gmail.com"
 password="byeworld69"
-server=smtplib.SMTP('smtp.gmail.com',587)
-server.starttls()
+
 # server.starttls()
 # server.login(sender_email,password)
 message=[["Registartion Successful",'ByeWorld GPA System\n\n\nHey there User!\nYour Registration is successful\n\nWelcome on-board!\n\nThanks and regards\nTeam ByeWorld\nbyeworld.sih@gmail.com'],
@@ -31,7 +30,9 @@ otpmessage=[
 
 
 def sendMail(username,x,timeStamp):
-    global server,sender_email,password
+    global sender_email,password
+    server=smtplib.SMTP('smtp.gmail.com',587)
+    server.starttls()
     server.login(sender_email,password)
     msg = MIMEMultipart()
     msg['Subject'] = message[x][0]
@@ -48,7 +49,9 @@ def sendMail(username,x,timeStamp):
 
 
 def sendOTP(username,x,otp):
-    global server,sender_email,password
+    global sender_email,password
+    server=smtplib.SMTP('smtp.gmail.com',587)
+    server.starttls()
     server.login(sender_email,password)
     msg = MIMEMultipart()
     msg['Subject'] = otpmessage[x][0]
