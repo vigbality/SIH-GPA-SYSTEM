@@ -77,7 +77,7 @@ body::after {
   height: 100%;
   opacity: 0.4;
   z-index: -1;
-  background-image: url("./Assets/LandingPage/Neural-background.gif");
+  background-image: url("./Assets/LandingPage/Neural-background.jpg");
 
   background-position: center;
   background-size: cover;
