@@ -712,3 +712,9 @@ input[type="radio"]:checked + label > img {
   width: 3000px !important;
   height: 3000px !important;
 } */
+
+
+/* for the bg animation */
+#world{
+  z-index: -1;
+}
