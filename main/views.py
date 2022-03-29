@@ -115,7 +115,7 @@ def index(request):
             else:
                 request.session['email']=userEmail
                 request.session['r']='4' # actually 0 but using 4, for OTP step, cuz 0 is for null
-                otpVal=generateOTP(1000,9999)
+                otpVal=generateOTP(100000,999999)
                 request.session['otp']=otpVal
                 sendOTP(userEmail,0,otpVal)
                 return redirect('reg0Page')
@@ -125,7 +125,7 @@ def index(request):
                 return render(request, "main/error-message.html",{'message':'Email is not registered with us, please sign up first :)'})
             else:
                 request.session['email']=userEmail
-                otpVal=generateOTP(1000,9999)
+                otpVal=generateOTP(100000,999999)
                 request.session['otp']=otpVal
                 sendOTP(userEmail,1,otpVal)
                 request.session['p']='1'
@@ -266,11 +266,12 @@ def log1(request):
                 lastLogin=parseDate(userObj.lastLoginTime, '%Y-%m-%d %H:%M:%S.%f')
                 currTime=now()
                 secondsDiff=(currTime-lastLogin).seconds
-                if secondsDiff > 600:
+                if secondsDiff > 3600:
                     userObj.failedAttempts=0
                     userObj.save()
                     return render(request,'main/categoryL.html')
                 else:
+                    secondsDiff = 3600-secondsDiff
                     minsLeft=secondsDiff//60
                     secsLeft=secondsDiff%60
                     request.session['l']='0'

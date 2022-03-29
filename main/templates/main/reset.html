@@ -27,9 +27,9 @@
         </section>
         <form action="" class="message-box reset flex flow" style="flex-direction: column;" method="post">
             {% csrf_token %}
-            <p class="fs-300 ff-heading">Enter the 4-digit One Time Password sent to your mail ID</p>
+            <p class="fs-300 ff-heading">Enter the 6-digit One Time Password sent to your mail ID</p>
             <p>({{id}})</p>
-            <input type="text" name="otp" class="OTP" maxlength="4" required>
+            <input type="text" name="otp" class="OTP" maxlength="6" required>
             <button class="btn-solid bg-purple-mid text-light" type="submit">Reset Password</button>
         </form>
     </div>
