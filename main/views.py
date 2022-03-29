@@ -301,7 +301,7 @@ def log2(request):
                 sendMail(request.session['email'],2,str(now()))
                 request.session['l']='0'
                 request.session.flush()
-                return render(request, "main/error-message.html",{'message':'Too many wrong attempts! Account locked for 10 mins!'})
+                return render(request, "main/error-message.html",{'message':'Too many wrong attempts! Account is locked for 60 mins!'})
             else:
                 userObj.failedAttempts+=1
                 userObj.lastLoginTime=str(now())
